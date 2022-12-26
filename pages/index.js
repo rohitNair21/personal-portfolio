@@ -3,7 +3,11 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import {RiMoonFoggyFill} from 'react-icons/ri'
-import "./index.scss";
+import {myLogo} from '/Users/rohitnair/rohit-personal-portfolio/public/images/myName.png'
+import {BsLinkedin, BsGithub} from 'react-icons/bs';
+import {MdEmail} from 'react-icons/md';
+
+import "./index.module.scss"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,25 +20,53 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className='bg-gradient-to-br from-slate-700 to-slate-550 px-10'>
         <div>
           <section className="min-h-screen">
-            <nav className="p-10">
-              <h1>
-                Rohit Nair
+            <nav className="p-10 mb-12 flex justify-between">
+              <h1 className="text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md">
+                Rohit Nair 
+                <img src={myLogo} alt=""/>
               </h1>
-              <ul>
+              <ul className='flex items-center'>
                 <li>
-                  <RiMoonFoggyFill />
+                  <RiMoonFoggyFill className="cursor-pointer text-lg"/>
                 </li>
                 <li>
-                  <a href="#">
+                  <a className="font-roboto bg-orange-500 text-white px-4 py-2 rounded-md ml-5">
                     Resume
                   </a>
                 </li>
               </ul>
-        
             </nav>
+            <div>
+              <h2>
+                Hi, I'm Rohit Nair
+              </h2>
+              <h3>
+              COMPUTER SCIENCE STUDENT / INNOVATOR / DEVELOPER
+              </h3>
+              <h4>
+              I'm currently enrolled at the University of Calgary where I am studying for my BSc in Computer Science. I am very interested in Human-Computer interactions! I am also interested in:
+              <ul>
+                <li>
+                  •Working out 💪🏽
+                </li>
+                <li>
+                  •Developing personal projects 👨🏽‍💻
+                </li>
+                <li>
+                  •Volunteering 🤝
+                </li>
+                <li>
+                  •Entrepreneurship and innovation 📈
+                </li>
+                <li>
+                  •Blockchain networks ⛓
+                </li>
+            </ul>
+              </h4>
+            </div>
           </section>
         </div>
       </main>

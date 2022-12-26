@@ -106,20 +106,12 @@ a {
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
-  src: url('/Users/rohitnair/rohit-personal-portfolio/styles/helvetica-neu.ttf') format('ttf');
-}
-@font-face {
-  font-family: 'La Belle Aurore';
-  src: url('/Users/rohitnair/rohit-personal-portfolio/styles/LaBelleAurore.woff2') format('woff2');
+  font-family: 'roboto';
+  src: url('../public/fonts/Roboto-Black.ttf') format('ttf');
 }
 
 @font-face {
-  font-family: 'Coolvetica';
-  src: url('/Users/rohitnair/rohit-personal-portfolio/styles/CoolveticaRg-Regular.woff2') format('woff2');
+  font-family: 'lobster';
+  src: url('../public/fonts/Lobster-Regular.ttf') format('ttf');
 }
 
-@font-face {
-  font-family: 'Roboto';
-  src: url('/Users/rohitnair/rohit-personal-portfolio/styles/Roboto-Black.ttf') format('ttf');
-}
