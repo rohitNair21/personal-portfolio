@@ -10,7 +10,6 @@ import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import "./index.module.scss";
 import Typical from "react-typical";
-import { ToggleSlider } from "react-toggle-slider";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -38,7 +37,7 @@ export default function Home() {
                 </li>
                 <li>
                   <label onClick={() => setDark(!darkMode)}>
-                    <ToggleSlider onToggle={state => setActive(state)} barBackgroundColorActive ={"#f97315"}/>
+                    
                   </label>
                 </li>
                 <li>
