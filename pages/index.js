@@ -33,11 +33,8 @@ export default function Home() {
               </h1>
               <ul className="flex items-center">
                 <li>
-                <BsSunFill className="text-2xl px-1"/>
-                </li>
-                <li>
                   <label onClick={() => setDark(!darkMode)}>
-                    
+                    <BsSunFill className="text-2xl px-1 cursor-pointer"/>
                   </label>
                 </li>
                 <li>
@@ -71,7 +68,7 @@ export default function Home() {
                 COMPUTER SCIENCE STUDENT / INNOVATOR / DEVELOPER
               </h3>
               <p className="p-4 md:text-lg dark:text-slate-900">
-                I'm currently enrolled at the{" "}
+                I&apos;m currently enrolled at the{" "}
                 <span className="text-rose-800"> University </span>{" "}
                 <span className="text-amber-500"> of </span>{" "}
                 <span className="text-rose-800"> Calgary </span> where I am
