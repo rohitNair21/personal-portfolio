@@ -13,9 +13,11 @@ import Typical from "react-typical";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
+
 export default function Home() {
-  const [darkMode, setDark] = useState(false)
+  const [darkMode, setDark] = useState(false);
   const [active, setActive] = useState(false);
+
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
@@ -29,16 +31,15 @@ export default function Home() {
           <section className="min-h-screen">
             <nav className="p-10 mb-12 flex justify-between">
               <h1 className="text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900">
-                  Rohit Nair
+                Rohit Nair
               </h1>
               <ul className="flex items-center">
                 <li>
                   <label onClick={() => setDark(!darkMode)}>
-                    <BsSunFill className="text-2xl px-1 cursor-pointer"/>
+                    <BsSunFill className="text-2xl px-1 cursor-pointer" />
                   </label>
                 </li>
-                <li>
-                </li>
+                <li></li>
                 <li>
                   <a className="font-roboto bg-orange-500 text-white px-4 py-2 rounded-md ml-5 dark:text-slate-900">
                     Resume
@@ -76,33 +77,45 @@ export default function Home() {
                 Human-Computer interactions! I am also interested in:
               </p>
               <ul className="dark:text-slate-900">
-                <li>•Working out 💪🏽</li>
-                <li>•Developing personal projects 👨🏽‍💻</li>
-                <li>•Volunteering 🤝</li>
-                <li>•Entrepreneurship and innovation 📈</li>
-                <li>•Blockchain networks ⛓</li>
+                <li>• Working out 💪🏽</li>
+                <li>• Developing personal projects 👨🏽‍💻</li>
+                <li>• Volunteering 🤝</li>
+                <li>• Entrepreneurship and innovation 📈</li>
+                <li>• Blockchain networks ⛓</li>
               </ul>
             </div>
             <div className="cursor-pointer flex text-5xl justify-center gap-5 dark:text-slate-900">
               <div className="hover:text-orange-500">
-                <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/rohit-n-345957192/">
-                  <BsLinkedin className="hover:scale-125 duration-700"/>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.linkedin.com/in/rohit-n-345957192/"
+                >
+                  <BsLinkedin className="hover:scale-125 duration-700" />
                 </a>
               </div>
               <div className="hover:text-orange-500">
-                <a target="_blank" rel="noreferrer" href="https://github.com/rohitNair21">
-                  <BsGithub className="hover:scale-125 duration-700"/>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/rohitNair21"
+                >
+                  <BsGithub className="hover:scale-125 duration-700" />
                 </a>
               </div>
               <div className="hover:text-orange-500">
-              <a target="_blank" rel="noreferrer" href="mailto:rohit.nair@ucalgary.ca">
-                  <MdEmail className="hover:scale-125 duration-700"/>
-              </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="mailto:rohit.nair@ucalgary.ca"
+                >
+                  <MdEmail className="hover:scale-125 duration-700" />
+                </a>
               </div>
             </div>
             <div>
               <Image
-                src={require("../public/images/IMG-3865-modified.png")}
+                src={mySelf}
                 className="relative mx-auto w-1/2 p-10 hover:scale-125 duration-700"
               />
             </div>
@@ -112,38 +125,38 @@ export default function Home() {
               What have I worked with!
             </h4>
             <p className="md:text-lg dark:text-slate-900">
-              I enjoy learning new things about the software world everyday!
-              Below are some of the current have skills and expertise I have:
+              I enjoy learning new things about the software world every day!
+              Below are some of the skills and expertise I currently have:
             </p>
-            <div className="gap-2">
-              <div className="text-center shadow-white shadow-xl rounded-lg p-3 my-4 flex-grow md:text-lg dark:text-slate-900">
-                <h5 className="text-orange-500 text-xl font-semibold">
+            <div className="grid md:grid-cols-2 gap-4 mt-6">
+              <div className="text-center bg-orange-500 dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+                <h5 className="text-white text-xl font-semibold mb-4">
                   Languages
                 </h5>
-                <ul>
-                  <li>•Java</li>
-                  <li>•Python</li>
-                  <li>•C</li>
-                  <li>•CSS</li>
-                  <li>•HTML</li>
-                  <li>•Solidity</li>
-                  <li>•Bash</li>
-                  <li>•ARM x86 Assembly</li>
+                <ul className="list-disc pl-4">
+                  <li>Java</li>
+                  <li>Python</li>
+                  <li>C</li>
+                  <li>CSS</li>
+                  <li>HTML</li>
+                  <li>Solidity</li>
+                  <li>Bash</li>
+                  <li>ARM x86 Assembly</li>
                 </ul>
               </div>
-              <div className="text-center shadow-white shadow-xl rounded-lg p-3 my-4 flex-grow md:text-lg dark:text-slate-900">
-                <h6 className="text-orange-500 text-xl font-semibold">
+              <div className="text-center bg-orange-500 dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+                <h6 className="text-white text-xl font-semibold mb-4">
                   Frameworks and Libraries
                 </h6>
-                <ul>
-                  <li>•Tailwind</li>
-                  <li>•Chakra UI</li>
-                  <li>•React</li>
-                  <li>•Jupyter</li>
-                  <li>•Tesseract</li>
-                  <li>•Pygame</li>
-                  <li>•BeautifulSoup</li>
-                  <li>•Apache POI</li>
+                <ul className="list-disc pl-4">
+                  <li>Tailwind</li>
+                  <li>Chakra UI</li>
+                  <li>React</li>
+                  <li>Jupyter</li>
+                  <li>Tesseract</li>
+                  <li>Pygame</li>
+                  <li>BeautifulSoup</li>
+                  <li>Apache POI</li>
                 </ul>
               </div>
             </div>
