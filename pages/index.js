@@ -18,6 +18,13 @@ export default function Home() {
   const [darkMode, setDark] = useState(false);
   const [active, setActive] = useState(false);
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
@@ -162,6 +169,11 @@ export default function Home() {
             </div>
           </section>
         </div>
+        <footer className="flex justify-center items-center mt-10">
+          <p className="text-gray-400 dark:text-white">
+            Designed by Rohit Nair © 2023
+          </p>
+        </footer>
       </main>
     </div>
   );
