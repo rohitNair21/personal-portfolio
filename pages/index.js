@@ -11,6 +11,9 @@ import { MdEmail } from "react-icons/md";
 import "./index.module.scss";
 import Typical from "react-typical";
 import { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,10 +36,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gray-800 px-10 md:px-20 lg:px-40 dark:bg-sky-200">
-        <div>
-          <section className="min-h-screen">
-            <nav className="p-10 mb-12 flex justify-between">
+      <main className="bg-gray-800 px-5 md:px-10 lg:px-20 dark:bg-sky-200">
+        <div className="flex flex-col md:flex-row">
+          <section className="w-full md:w-3/4 min-h-screen">
+            <nav className="p-5 flex justify-between">
               <h1 className="text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900">
                 Rohit Nair
               </h1>
@@ -120,57 +123,72 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div>
-              <Image
-                src={mySelf}
-                className="relative mx-auto w-1/2 p-10 hover:scale-125 duration-700"
-              />
-            </div>
           </section>
-          <section>
-            <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900">
-              What have I worked with!
-            </h4>
-            <p className="md:text-lg dark:text-slate-900">
-              I enjoy learning new things about the software world every day!
-              Below are some of the skills and expertise I currently have:
-            </p>
-            <div className="grid md:grid-cols-2 gap-4 mt-6">
-              <div className="text-center bg-orange-500 dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
-                <h5 className="text-white text-xl font-semibold mb-4">
-                  Languages
-                </h5>
-                <ul className="list-disc pl-4">
-                  <li>Java</li>
-                  <li>Python</li>
-                  <li>C</li>
-                  <li>CSS</li>
-                  <li>HTML</li>
-                  <li>Solidity</li>
-                  <li>Bash</li>
-                  <li>ARM x86 Assembly</li>
-                </ul>
-              </div>
-              <div className="text-center bg-orange-500 dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
-                <h6 className="text-white text-xl font-semibold mb-4">
-                  Frameworks and Libraries
-                </h6>
-                <ul className="list-disc pl-4">
-                  <li>Tailwind</li>
-                  <li>Chakra UI</li>
-                  <li>React</li>
-                  <li>Jupyter</li>
-                  <li>Tesseract</li>
-                  <li>Pygame</li>
-                  <li>BeautifulSoup</li>
-                  <li>Apache POI</li>
-                </ul>
+          <section className="w-full md:w-1/4">
+            <div className="flex justify-center items-center h-screen">
+              <div
+                className="w-2/3"
+                style={{ position: "relative", left: "-305px", top: "-100px" }}
+              >
+                <Slider>
+                  <div className="relative mx-auto p-10 hover:scale-125 duration-700">
+                    <Image
+                      src={require("../public/images/IMG-3865-modified.png")}
+                    />
+                  </div>
+                  <div className="relative mx-auto p-10 hover:scale-125 duration-700">
+                    <Image
+                      src={require("../public/images/IMG-3865-modified.png")}
+                    />
+                  </div>
+                </Slider>
               </div>
             </div>
           </section>
         </div>
+        <section>
+          <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900">
+            What have I worked with!
+          </h4>
+          <p className="md:text-lg dark:text-slate-900">
+            I enjoy learning new things about the software world every day!
+            Below are some of the skills and expertise I currently have:
+          </p>
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <div className="text-center bg-orange-500 dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+              <h5 className="text-white text-xl font-semibold mb-4">
+                Languages
+              </h5>
+              <ul className="list-disc pl-4">
+                <li>Java</li>
+                <li>Python</li>
+                <li>C</li>
+                <li>CSS</li>
+                <li>HTML</li>
+                <li>Solidity</li>
+                <li>Bash</li>
+                <li>ARM x86 Assembly</li>
+              </ul>
+            </div>
+            <div className="text-center bg-orange-500 dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+              <h6 className="text-white text-xl font-semibold mb-4">
+                Frameworks and Libraries
+              </h6>
+              <ul className="list-disc pl-4">
+                <li>Tailwind</li>
+                <li>Chakra UI</li>
+                <li>React</li>
+                <li>Jupyter</li>
+                <li>Tesseract</li>
+                <li>Pygame</li>
+                <li>BeautifulSoup</li>
+                <li>Apache POI</li>
+              </ul>
+            </div>
+          </div>
+        </section>
         <footer className="flex justify-center items-center mt-10">
-          <p className="text-gray-400 dark:text-white">
+          <p className="text-gray-400 text-sm dark:text-white">
             Designed by Rohit Nair © 2023
           </p>
         </footer>
