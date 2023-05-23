@@ -8,7 +8,6 @@ import { myLogo } from "../public/images/myName.png";
 import { mySelf } from "../public/images/IMG-3865-modified.png";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-import "./index.module.scss";
 import Typical from "react-typical";
 import { useState } from "react";
 import Slider from "react-slick";
@@ -48,12 +47,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gray-800 px-10 md:px-20 lg:px-40 dark:bg-sky-200">
+      <main className="bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen">
         <section className="flex flex-col md:flex-row">
-          <div className="w-full md:w-3/4 min-h-screen">
-            {/* Text section */}
-            <nav className="p-5 flex justify-between">
-              <h1 className="text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900">
+          <div
+            className={styles.mainContainer + " w-full md:w-3/4 min-h-screen"}
+          >
+            <nav className="p-3 flex justify-between">
+              <h1
+                className={
+                  "text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900"
+                }
+              >
                 Rohit Nair
               </h1>
               <ul className="flex items-center">
@@ -64,7 +68,7 @@ export default function Home() {
                 </li>
                 <li></li>
                 <li>
-                  <a className="font-roboto bg-orange-500 text-white px-4 py-2 rounded-md ml-5 dark:text-slate-900">
+                  <a className="font-roboto bg-orange-500 text-white px-4 py-2 rounded-md ml-5">
                     Resume
                   </a>
                 </li>

@@ -3,9 +3,14 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
   min-height: 100vh;
 }
+
+.mainContainer {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
 
 .description {
   display: inherit;
