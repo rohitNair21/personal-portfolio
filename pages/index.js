@@ -18,6 +18,18 @@ import "slick-carousel/slick/slick-theme.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    autoplay: true,
+    speed: 3000,
+    autoplaySpeed: 3000,
+    lazyLoad: true,
+    cssEase: "linear",
+  };
+
   const [darkMode, setDark] = useState(false);
   const [active, setActive] = useState(false);
 
@@ -36,9 +48,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gray-800 px-5 md:px-10 lg:px-20 dark:bg-sky-200">
-        <div className="flex flex-col md:flex-row">
-          <section className="w-full md:w-3/4 min-h-screen">
+      <main className="bg-gray-800 px-10 md:px-20 lg:px-40 dark:bg-sky-200">
+        <section className="flex flex-col md:flex-row">
+          <div className="w-full md:w-3/4 min-h-screen">
+            {/* Text section */}
             <nav className="p-5 flex justify-between">
               <h1 className="text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900">
                 Rohit Nair
@@ -58,7 +71,7 @@ export default function Home() {
               </ul>
             </nav>
             <div className="text-center p-8">
-              <h2 className="text-4xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-orange-500">
+              <h2 className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-orange-500">
                 <span>
                   <Typical
                     steps={[
@@ -73,12 +86,12 @@ export default function Home() {
                     loop={Infinity}
                   />
                 </span>
-                Rohit Nair
+                Rohit Nair 👋🏽
               </h2>
               <h3 className="text-2xl md:text-3xl dark:text-slate-900">
                 COMPUTER SCIENCE STUDENT / INNOVATOR / DEVELOPER
               </h3>
-              <p className="p-4 md:text-lg dark:text-slate-900">
+              <p className="p-2 md:text-lg dark:text-slate-900 text-left">
                 I&apos;m currently enrolled at the{" "}
                 <span className="text-rose-800"> University </span>{" "}
                 <span className="text-amber-500"> of </span>{" "}
@@ -86,15 +99,74 @@ export default function Home() {
                 studying for my BSc in Computer Science. I am very interested in
                 Human-Computer interactions! I am also interested in:
               </p>
-              <ul className="dark:text-slate-900">
-                <li>• Working out 💪🏽</li>
-                <li>• Developing personal projects 👨🏽‍💻</li>
-                <li>• Volunteering 🤝</li>
-                <li>• Entrepreneurship and innovation 📈</li>
-                <li>• Blockchain networks ⛓</li>
-              </ul>
+              <div className="flex justify-start gap-x-40">
+                <ul className="p-2 dark:text-slate-900 text-left">
+                  <li>• Working out 💪🏽</li>
+                  <li>• Developing personal projects 👨🏽‍💻</li>
+                  <li>• Volunteering 🤝</li>
+                  <li>• Entrepreneurship and innovation 📈</li>
+                  <li>• Blockchain networks ⛓</li>
+                </ul>
+                <div className="w-full md:w-1/4 flex justify-center items-start">
+                  <div className="w-96">
+                    <Slider {...settings} className="min-w-full">
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/IMG-3865-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/IMG-3865-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/IMG-3865-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          {" "}
+                          <Image
+                            src={require("../public/images/IMG-3865-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          {" "}
+                          <Image
+                            src={require("../public/images/IMG-3865-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          {" "}
+                          <Image
+                            src={require("../public/images/IMG-3865-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                    </Slider>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="cursor-pointer flex text-5xl justify-center gap-5 dark:text-slate-900">
+            <div className="px-10 cursor-pointer flex text-5xl justify-start gap-7 dark:text-slate-900">
               <div className="hover:text-orange-500">
                 <a
                   target="_blank"
@@ -123,29 +195,8 @@ export default function Home() {
                 </a>
               </div>
             </div>
-          </section>
-          <section className="w-full md:w-1/4">
-            <div className="flex justify-center items-center h-screen">
-              <div
-                className="w-2/3"
-                style={{ position: "relative", left: "-305px", top: "-100px" }}
-              >
-                <Slider>
-                  <div className="relative mx-auto p-10 hover:scale-125 duration-700">
-                    <Image
-                      src={require("../public/images/IMG-3865-modified.png")}
-                    />
-                  </div>
-                  <div className="relative mx-auto p-10 hover:scale-125 duration-700">
-                    <Image
-                      src={require("../public/images/IMG-3865-modified.png")}
-                    />
-                  </div>
-                </Slider>
-              </div>
-            </div>
-          </section>
-        </div>
+          </div>
+        </section>
         <section>
           <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900">
             What have I worked with!
