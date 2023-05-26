@@ -2,10 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { RiMoonFoggyFill } from "react-icons/ri";
 import { BsSunFill } from "react-icons/bs";
-import { myLogo } from "../public/images/myName.png";
-import { mySelf } from "../public/images/IMG-3865-modified.png";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import Typical from "react-typical";
@@ -13,6 +10,10 @@ import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { IoIosSquare } from "react-icons/io5";
+import { SiCplusplus, SiFirebase } from "react-icons/si";
+import { FaSwift, FaReact, FaJava, FaPython, FaFigma } from "react-icons/fa";
+import { DiPostgresql, DiJavascript1 } from "react-icons/di";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,10 +49,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen">
-        <section className="flex flex-col md:flex-row">
-          <div
-            className={styles.mainContainer + " w-full md:w-3/4 min-h-screen"}
-          >
+        <section>
+          <div className={styles.mainContainer}>
             <nav className="p-3 flex justify-between">
               <h1
                 className={
@@ -68,7 +67,7 @@ export default function Home() {
                 </li>
                 <li></li>
                 <li>
-                  <a className="font-roboto bg-orange-500 text-white px-4 py-2 rounded-md ml-5">
+                  <a className="font-roboto bg-orange-500 text-white px-4 py-2 rounded-md ml-5 mr-10">
                     Resume
                   </a>
                 </li>
@@ -92,111 +91,151 @@ export default function Home() {
                 </span>
                 Rohit Nair 👋🏽
               </h2>
-              <h3 className="text-2xl md:text-3xl dark:text-slate-900">
-                COMPUTER SCIENCE STUDENT / INNOVATOR / DEVELOPER
-              </h3>
-              <p className="p-2 md:text-lg dark:text-slate-900 text-left">
-                I&apos;m currently enrolled at the{" "}
-                <span className="text-rose-800"> University </span>{" "}
-                <span className="text-amber-500"> of </span>{" "}
-                <span className="text-rose-800"> Calgary </span> where I am
-                studying for my BSc in Computer Science. I am very interested in
-                Human-Computer interactions! I am also interested in:
-              </p>
-              <div className="flex justify-start gap-x-40">
-                <ul className="p-2 dark:text-slate-900 text-left">
-                  <li>• Working out 💪🏽</li>
-                  <li>• Developing personal projects 👨🏽‍💻</li>
-                  <li>• Volunteering 🤝</li>
-                  <li>• Entrepreneurship and innovation 📈</li>
-                  <li>• Blockchain networks ⛓</li>
-                </ul>
-                <div className="w-full md:w-1/4 flex justify-center items-start">
-                  <div className="w-96">
-                    <Slider {...settings} className="min-w-full">
-                      <div>
-                        <h3>
-                          <Image
-                            src={require("../public/images/IMG-3865-modified.png")}
-                            className="hover:scale-125 duration-700"
-                          />
-                        </h3>
-                      </div>
-                      <div>
-                        <h3>
-                          <Image
-                            src={require("../public/images/IMG-3865-modified.png")}
-                            className="hover:scale-125 duration-700"
-                          />
-                        </h3>
-                      </div>
-                      <div>
-                        <h3>
-                          <Image
-                            src={require("../public/images/IMG-3865-modified.png")}
-                            className="hover:scale-125 duration-700"
-                          />
-                        </h3>
-                      </div>
-                      <div>
-                        <h3>
-                          {" "}
-                          <Image
-                            src={require("../public/images/IMG-3865-modified.png")}
-                            className="hover:scale-125 duration-700"
-                          />
-                        </h3>
-                      </div>
-                      <div>
-                        <h3>
-                          {" "}
-                          <Image
-                            src={require("../public/images/IMG-3865-modified.png")}
-                            className="hover:scale-125 duration-700"
-                          />
-                        </h3>
-                      </div>
-                      <div>
-                        <h3>
-                          {" "}
-                          <Image
-                            src={require("../public/images/IMG-3865-modified.png")}
-                            className="hover:scale-125 duration-700"
-                          />
-                        </h3>
-                      </div>
-                    </Slider>
-                  </div>
+              <div className="w-full flex justify-center items-start">
+                <div className="w-9/12">
+                  <Slider {...settings} className="min-w-full">
+                    <div>
+                      <h3>
+                        <Image
+                          src={require("../public/images/IMG-3865-modified.png")}
+                          className="hover:scale-125 duration-700"
+                        />
+                      </h3>
+                    </div>
+                    <div>
+                      <h3>
+                        <Image
+                          src={require("../public/images/unnamed-modified.png")}
+                          className="hover:scale-125 duration-700"
+                        />
+                      </h3>
+                    </div>
+                    <div>
+                      <h3>
+                        <Image
+                          src={require("../public/images/20210623_185054 (1)-modified.png")}
+                          className="hover:scale-125 duration-700"
+                        />
+                      </h3>
+                    </div>
+                    <div>
+                      <h3>
+                        <Image
+                          src={require("../public/images/unnamed1-modified.png")}
+                          className="hover:scale-125 duration-700"
+                        />
+                      </h3>
+                    </div>
+                    <div>
+                      <h3>
+                        <Image
+                          src={require("../public/images/rohit sut-modified.png")}
+                          className="hover:scale-125 duration-700"
+                        />
+                      </h3>
+                    </div>
+                    <div>
+                      <h3>
+                        <Image
+                          src={require("../public/images/149-891-7382_77xq_89 (1)-modified.png")}
+                          className="hover:scale-125 duration-700"
+                        />
+                      </h3>
+                    </div>
+                  </Slider>
                 </div>
               </div>
-            </div>
-            <div className="px-10 cursor-pointer flex text-5xl justify-start gap-7 dark:text-slate-900">
-              <div className="hover:text-orange-500">
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://www.linkedin.com/in/rohit-n-345957192/"
-                >
-                  <BsLinkedin className="hover:scale-125 duration-700" />
-                </a>
-              </div>
-              <div className="hover:text-orange-500">
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://github.com/rohitNair21"
-                >
-                  <BsGithub className="hover:scale-125 duration-700" />
-                </a>
-              </div>
-              <div className="hover:text-orange-500">
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="mailto:rohit.nair@ucalgary.ca"
-                >
-                  <MdEmail className="hover:scale-125 duration-700" />
-                </a>
+              <h3 className="text-2xl md:text-3xl md:text-center dark:text-slate-900">
+                COMPUTER SCIENCE STUDENT / INNOVATOR / DEVELOPER
+              </h3>
+
+              <div className="md:grid md:grid-cols-2">
+                <div>
+                  <p className="p-2 md:text-lg dark:text-slate-900 text-center md:text-left">
+                    I&apos;m currently enrolled at the{" "}
+                    <span className="text-rose-800"> University </span>{" "}
+                    <span className="text-amber-500"> of </span>{" "}
+                    <span className="text-rose-800"> Calgary </span> where I am
+                    studying for my BSc in Computer Science. I am very
+                    interested in Human-Computer interactions! I am also
+                    exploring:
+                  </p>
+
+                  <div className="flex flex-row justify-center md:justify-start md:items-start">
+                    <ul className="p-2 dark:text-slate-900 text-center md:w-1/2 md:text-left">
+                      <li>• Working out 💪🏽</li>
+                      <li>• Developing personal projects 👨🏽‍💻</li>
+                      <li>• Volunteering 🤝</li>
+                      <li>• Entrepreneurship and innovation 📈</li>
+                      <li>• Blockchain networks ⛓</li>
+                    </ul>
+                  </div>
+                  <div className="px-2 cursor-pointer flex text-6xl justify-center gap-10 mt-5 md:justify-start dark:text-slate-900">
+                    <div className="hover:text-orange-500">
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://www.linkedin.com/in/rohit-n-345957192/"
+                      >
+                        <BsLinkedin className="hover:scale-125 duration-700" />
+                      </a>
+                    </div>
+                    <div className="hover:text-orange-500">
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="https://github.com/rohitNair21"
+                      >
+                        <BsGithub className="hover:scale-125 duration-700" />
+                      </a>
+                    </div>
+                    <div className="hover:text-orange-500">
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href="mailto:rohit.nair@ucalgary.ca"
+                      >
+                        <MdEmail className="hover:scale-125 duration-700" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-row justify-center">
+                  <div className="mt-6 md:mt-3">
+                    <div className="italic md:text-lg">
+                      Languages and Frameworks
+                    </div>
+                    <div className="grid md:gap-x-16 md:gap-y-5 grid-cols-3">
+                      <div>
+                        <FaJava className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                      <div>
+                        <FaPython className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                      <div>
+                        <FaReact className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                      <div>
+                        <FaSwift className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                      <div>
+                        <SiCplusplus className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                      <div>
+                        <DiJavascript1 className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                      <div>
+                        <DiPostgresql className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                      <div>
+                        <SiFirebase className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                      <div>
+                        <FaFigma className="text-8xl 0 p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
