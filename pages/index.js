@@ -51,7 +51,7 @@ export default function Home() {
       <main className="bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen">
         <section>
           <div className={styles.mainContainer}>
-            <nav className="p-3 flex justify-between">
+            <nav className="p-3 flex justify-between sticky top-0 bg-gray-800 z-10">
               <h1
                 className={
                   "text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900"
@@ -67,14 +67,14 @@ export default function Home() {
                 </li>
                 <li></li>
                 <li>
-                  <a className="font-roboto bg-orange-500 text-white px-4 py-2 rounded-md ml-5 mr-10">
+                  <a className="font-roboto bg-orange-500 dark:bg-slate-900 text-white px-4 py-2 rounded-md ml-5 mr-10">
                     Resume
                   </a>
                 </li>
               </ul>
             </nav>
             <div className="text-center p-8">
-              <h2 className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-orange-500">
+              <h2 className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-slate-900">
                 <span>
                   <Typical
                     steps={[
@@ -160,8 +160,7 @@ export default function Home() {
                     interested in Human-Computer interactions! I am also
                     exploring:
                   </p>
-
-                  <div className="flex flex-row justify-center md:justify-start md:items-start">
+                  <div className="flex flex-row justify-center md:justify-start md:items-start mt-3">
                     <ul className="p-2 dark:text-slate-900 text-center md:w-1/2 md:text-left">
                       <li>• Working out 💪🏽</li>
                       <li>• Developing personal projects 👨🏽‍💻</li>
@@ -170,7 +169,7 @@ export default function Home() {
                       <li>• Blockchain networks ⛓</li>
                     </ul>
                   </div>
-                  <div className="px-2 cursor-pointer flex text-6xl justify-center gap-10 mt-5 md:justify-start dark:text-slate-900">
+                  <div className="px-2 cursor-pointer flex text-6xl justify-center gap-10 mt-10 md:justify-start dark:text-slate-900">
                     <div className="hover:text-orange-500">
                       <a
                         target="_blank"
@@ -202,10 +201,10 @@ export default function Home() {
                 </div>
                 <div className="flex flex-row justify-center">
                   <div className="mt-6 md:mt-3">
-                    <div className="italic md:text-lg">
+                    <div className="italic md:text-lg dark:text-slate-900">
                       Languages and Frameworks
                     </div>
-                    <div className="grid md:gap-x-16 md:gap-y-5 grid-cols-3">
+                    <div className="grid md:gap-x-32 md:gap-y-6 grid-cols-3">
                       <div>
                         <FaJava className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
@@ -240,44 +239,127 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section>
-          <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900">
-            What have I worked with!
+        <section className={styles.mainContainer}>
+          <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900 mt-5 text-orange-500">
+            Portfolio
           </h4>
-          <p className="md:text-lg dark:text-slate-900">
-            I enjoy learning new things about the software world every day!
-            Below are some of the skills and expertise I currently have:
-          </p>
-          <div className="grid md:grid-cols-2 gap-4 mt-6">
-            <div className="text-center bg-orange-500 dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
-              <h5 className="text-white text-xl font-semibold mb-4">
-                Languages
+          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
+            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-sm shadow-white flex flex-col items-center">
+              <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
+                uTrack 🏃🏻🏃🏼🏃🏽🏃🏾🏃🏿
               </h5>
-              <ul className="list-disc pl-4">
-                <li>Java</li>
-                <li>Python</li>
-                <li>C</li>
-                <li>CSS</li>
-                <li>HTML</li>
-                <li>Solidity</li>
-                <li>Bash</li>
-                <li>ARM x86 Assembly</li>
-              </ul>
+              <p>
+                A live gym tracker constructed using
+                <span className="font-bold">
+                  {" "}
+                  Django, React, and PostgreSQL{" "}
+                </span>
+                that uses a unique system to help student athletes and other
+                interested individuals verify their usage of University of
+                Calgary athletic services.
+              </p>
+              <div className="text-2xl mt-5 hover:text-orange-500">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/Abhay-Chopra/uTrack"
+                >
+                  <BsGithub className="hover:scale-125 duration-700" />
+                </a>
+              </div>
             </div>
-            <div className="text-center bg-orange-500 dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
-              <h6 className="text-white text-xl font-semibold mb-4">
-                Frameworks and Libraries
-              </h6>
-              <ul className="list-disc pl-4">
-                <li>Tailwind</li>
-                <li>Chakra UI</li>
-                <li>React</li>
-                <li>Jupyter</li>
-                <li>Tesseract</li>
-                <li>Pygame</li>
-                <li>BeautifulSoup</li>
-                <li>Apache POI</li>
-              </ul>
+            <div className="text-center dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+              <Image
+                src={require("../public/images/Screenshot_2023-04-06_at_12.31.27_PM.png")}
+                className="rounded-lg hover:scale-125 duration-700"
+              />
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
+            <div className="text-center dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <h6 className="font-bold italic">iPhone 14 (French)</h6>
+                  <Image
+                    src={require("../public/images/SimSS1.png")}
+                    className="rounded-lg hover:scale-125 duration-700"
+                  />
+                </div>
+                <div>
+                  <h7 className="font-bold italic">iPhone SE (English) </h7>
+                  <Image
+                    src={require("../public/images/SimSS2.png")}
+                    className="rounded-lg hover:scale-125 duration-700"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-sm shadow-white flex flex-col items-center">
+              <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
+                SafeSpace 🔒
+              </h5>
+              <p>
+                An outreach application prototype designed using{" "}
+                <span className="font-bold">
+                  {" "}
+                  Flutter with a Firebase and the Google API{" "}
+                </span>
+                that provides domestic violence victims a 1-on-1 live chat with
+                multi-language support.
+              </p>
+              <div className="text-2xl mt-5 hover:text-orange-500">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/rohitNair21/outreachAppFInal"
+                >
+                  <BsGithub className="hover:scale-125 duration-700" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
+            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-sm shadow-white flex flex-col items-center">
+              <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
+                CampusFire (
+                <span className="italic">partial developer, in progress</span>)
+                🔥
+              </h5>
+              <p>
+                A unique social media platform designed in
+                <span className="font-bold"> Swift and hosted on AWS </span>
+                that allows for University of Calgary students to connect with
+                peers.
+              </p>
+              <div className="text-2xl mt-5 hover:text-orange-500">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/rohitNair21/outreachAppFInal"
+                >
+                  <BsGithub className="hover:scale-125 duration-700" />
+                </a>
+              </div>
+            </div>
+            <div className="text-center dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <h6 className="font-bold italic">
+                    iPhone XR (browsing profiles)
+                  </h6>
+                  <Image
+                    src={require("../public/images/IMG_6043.PNG")}
+                    className="rounded-lg hover:scale-125 duration-700"
+                  />
+                </div>
+                <div>
+                  <h7 className="font-bold italic">iPhone XR (my profile) </h7>
+                  <Image
+                    src={require("../public/images/IMG_6045.PNG")}
+                    className="rounded-lg hover:scale-125 duration-700"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
