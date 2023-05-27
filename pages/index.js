@@ -348,14 +348,14 @@ export default function Home() {
                     iPhone XR (browsing profiles)
                   </h6>
                   <Image
-                    src={require("../public/images/IMG_6043.PNG")}
+                    src={require("../public/images/IMG_6043(a).png")}
                     className="rounded-lg hover:scale-125 duration-700"
                   />
                 </div>
                 <div>
                   <h7 className="font-bold italic">iPhone XR (my profile) </h7>
                   <Image
-                    src={require("../public/images/IMG_6045.PNG")}
+                    src={require("../public/images/IMG_6045(a).png")}
                     className="rounded-lg hover:scale-125 duration-700"
                   />
                 </div>
