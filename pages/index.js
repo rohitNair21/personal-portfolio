@@ -10,10 +10,10 @@ import { useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { IoIosSquare } from "react-icons/io5";
 import { SiCplusplus, SiFirebase } from "react-icons/si";
 import { FaSwift, FaReact, FaJava, FaPython, FaFigma } from "react-icons/fa";
 import { DiPostgresql, DiJavascript1 } from "react-icons/di";
+import Resume from "./Resume";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,28 +51,28 @@ export default function Home() {
       <main className="bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen">
         <section>
           <div className={styles.mainContainer}>
-            <nav className="p-3 flex justify-between sticky top-0 bg-gray-800 z-10">
-              <h1
-                className={
-                  "text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900"
-                }
-              >
-                Rohit Nair
-              </h1>
-              <ul className="flex items-center">
-                <li>
-                  <label onClick={() => setDark(!darkMode)}>
-                    <BsSunFill className="text-2xl px-1 cursor-pointer" />
-                  </label>
-                </li>
-                <li></li>
-                <li>
-                  <a className="font-roboto bg-orange-500 dark:bg-slate-900 text-white px-4 py-2 rounded-md ml-5 mr-10">
-                    Resume
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <div>
+              <nav className="p-3 flex justify-between sticky top-0 z-999">
+                <h1
+                  className={
+                    "text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900"
+                  }
+                >
+                  Rohit Nair
+                </h1>
+                <ul className="flex items-center">
+                  <li>
+                    <label onClick={() => setDark(!darkMode)}>
+                      <BsSunFill className="text-2xl px-1 cursor-pointer dark:text-black rounded-md" />
+                    </label>
+                  </li>
+                  <li></li>
+                  <li>
+                    <Resume />
+                  </li>
+                </ul>
+              </nav>
+            </div>
             <div className="text-center p-8">
               <h2 className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-slate-900">
                 <span>
@@ -206,31 +206,31 @@ export default function Home() {
                     </div>
                     <div className="grid md:gap-x-32 md:gap-y-6 grid-cols-3">
                       <div>
-                        <FaJava className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <FaJava className="text-8xl p-1.5 text-red-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                       <div>
-                        <FaPython className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <FaPython className="text-8xl p-1.5 text-yellow-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                       <div>
-                        <FaReact className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <FaReact className="text-8xl p-1.5 text-blue-400 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                       <div>
-                        <FaSwift className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <FaSwift className="text-8xl p-1.5 text-orange-700 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                       <div>
-                        <SiCplusplus className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <SiCplusplus className="text-8xl p-1.5 text-blue-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                       <div>
-                        <DiJavascript1 className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <DiJavascript1 className="text-8xl p-1.5 text-yellow-300 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                       <div>
-                        <DiPostgresql className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <DiPostgresql className="text-8xl p-1.5 text-blue-700 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                       <div>
-                        <SiFirebase className="text-8xl p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <SiFirebase className="text-8xl p-1.5 text-orange-300 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                       <div>
-                        <FaFigma className="text-8xl 0 p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        <FaFigma className="text-8xl 0 p-1.5 text-pink-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                       </div>
                     </div>
                   </div>
@@ -240,11 +240,11 @@ export default function Home() {
           </div>
         </section>
         <section className={styles.mainContainer}>
-          <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900 mt-5 text-orange-500">
+          <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900 mt-28 text-orange-500">
             Portfolio
           </h4>
           <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
-            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-sm shadow-white flex flex-col items-center">
+            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
               <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
                 uTrack 🏃🏻🏃🏼🏃🏽🏃🏾🏃🏿
               </h5>
@@ -268,7 +268,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="text-center dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+            <div className="text-center dark:text-white rounded-lg p-6 shadow-md shadow-black">
               <Image
                 src={require("../public/images/Screenshot_2023-04-06_at_12.31.27_PM.png")}
                 className="rounded-lg hover:scale-125 duration-700"
@@ -276,7 +276,7 @@ export default function Home() {
             </div>
           </div>
           <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
-            <div className="text-center dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+            <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <h6 className="font-bold italic">iPhone 14 (French)</h6>
@@ -294,7 +294,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-sm shadow-white flex flex-col items-center">
+            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
               <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
                 SafeSpace 🔒
               </h5>
@@ -319,7 +319,7 @@ export default function Home() {
             </div>
           </div>
           <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
-            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-sm shadow-white flex flex-col items-center">
+            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
               <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
                 CampusFire (
                 <span className="italic">partial developer, in progress</span>)
@@ -341,7 +341,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="text-center dark:bg-gray-700 dark:text-white rounded-lg p-6 shadow-md">
+            <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <h6 className="font-bold italic">
