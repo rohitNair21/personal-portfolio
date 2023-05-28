@@ -52,7 +52,7 @@ export default function Home() {
         <section>
           <div className={styles.mainContainer}>
             <div>
-              <nav className="p-3 flex justify-between sticky top-0 z-999">
+              <nav className="sticky top-0 z-50 p-3 flex justify-between">
                 <h1
                   className={
                     "text-2xl font-semibold p-1.5 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900"
@@ -201,7 +201,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-row justify-center">
                   <div className="mt-6 md:mt-3">
-                    <div className="italic md:text-lg dark:text-slate-900">
+                    <div className="italic md:text-lg dark:text-slate-900 underline">
                       Languages and Frameworks
                     </div>
                     <div className="grid md:gap-x-32 md:gap-y-6 grid-cols-3">
@@ -240,60 +240,13 @@ export default function Home() {
           </div>
         </section>
         <section className={styles.mainContainer}>
-          <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900 mt-28 text-orange-500">
+          <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900 mt-28 text-orange-500 underline">
             Portfolio
           </h4>
-          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
-            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
-              <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
-                uTrack 🏃🏻🏃🏼🏃🏽🏃🏾🏃🏿
-              </h5>
-              <p>
-                A live gym tracker constructed using
-                <span className="font-bold">
-                  {" "}
-                  Django, React, and PostgreSQL{" "}
-                </span>
-                that uses a unique system to help student athletes and other
-                interested individuals verify their usage of University of
-                Calgary athletic services.
-              </p>
-              <div className="text-2xl mt-5 hover:text-orange-500">
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://github.com/Abhay-Chopra/uTrack"
-                >
-                  <BsGithub className="hover:scale-125 duration-700" />
-                </a>
-              </div>
-            </div>
-            <div className="text-center dark:text-white rounded-lg p-6 shadow-md shadow-black">
-              <Image
-                src={require("../public/images/Screenshot_2023-04-06_at_12.31.27_PM.png")}
-                className="rounded-lg hover:scale-125 duration-700"
-              />
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
-            <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <h6 className="font-bold italic">iPhone 14 (French)</h6>
-                  <Image
-                    src={require("../public/images/SimSS1.png")}
-                    className="rounded-lg hover:scale-125 duration-700"
-                  />
-                </div>
-                <div>
-                  <h7 className="font-bold italic">iPhone SE (English) </h7>
-                  <Image
-                    src={require("../public/images/SimSS2.png")}
-                    className="rounded-lg hover:scale-125 duration-700"
-                  />
-                </div>
-              </div>
-            </div>
+          <p className="text-lg">
+            Check out some of the personal projects I have been building!
+          </p>
+          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none">
             <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
               <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
                 SafeSpace 🔒
@@ -317,13 +270,70 @@ export default function Home() {
                 </a>
               </div>
             </div>
+            <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <h6 className="font-bold italic underline">
+                    iPhone 14 (French)
+                  </h6>
+                  <Image
+                    src={require("../public/images/SimSS1.png")}
+                    className="rounded-lg hover:scale-125 duration-700"
+                  />
+                </div>
+                <div>
+                  <h7 className="font-bold italic underline">
+                    iPhone SE (English){" "}
+                  </h7>
+                  <Image
+                    src={require("../public/images/SimSS2.png")}
+                    className="rounded-lg hover:scale-125 duration-700"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center">
+          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none">
+            <div className="text-center dark:text-white rounded-lg p-6 shadow-md shadow-black order-last md:order-first">
+              <Image
+                src={require("../public/images/utrack.png")}
+                className="rounded-lg hover:scale-125 duration-700"
+              />
+            </div>
+            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center order-first md:order-last">
+              <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
+                uTrack 🏃🏻🏃🏼🏃🏽🏃🏾🏃🏿
+              </h5>
+              <p>
+                A live gym tracker constructed using
+                <span className="font-bold">
+                  {" "}
+                  Django, React, and PostgreSQL{" "}
+                </span>
+                that uses a unique system to help student athletes and other
+                interested individuals verify their usage of University of
+                Calgary athletic services.
+              </p>
+              <div className="text-2xl mt-5 hover:text-orange-500">
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/Abhay-Chopra/uTrack"
+                >
+                  <BsGithub className="hover:scale-125 duration-700" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none">
             <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
               <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
                 CampusFire (
-                <span className="italic">partial developer, in progress</span>)
-                🔥
+                <span className="italic">
+                  contributing developer, in progress
+                </span>
+                ) 🔥
               </h5>
               <p>
                 A unique social media platform designed in
@@ -344,7 +354,7 @@ export default function Home() {
             <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <h6 className="font-bold italic">
+                  <h6 className="font-bold italic underline">
                     iPhone XR (browsing profiles)
                   </h6>
                   <Image
@@ -353,7 +363,9 @@ export default function Home() {
                   />
                 </div>
                 <div>
-                  <h7 className="font-bold italic">iPhone XR (my profile) </h7>
+                  <h7 className="font-bold italic underline">
+                    iPhone XR (my profile){" "}
+                  </h7>
                   <Image
                     src={require("../public/images/IMG_6045(a).png")}
                     className="rounded-lg hover:scale-125 duration-700"
