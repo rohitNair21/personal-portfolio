@@ -1,22 +1,22 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
-import { BsSunFill } from "react-icons/bs";
-import { BsLinkedin, BsGithub } from "react-icons/bs";
-import { MdEmail } from "react-icons/md";
+
 import Typical from "react-typical";
 import { useState } from "react";
 import Slider from "react-slick";
+import Resume from "./Resume";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+import { MdEmail } from "react-icons/md";
+import { BsSunFill } from "react-icons/bs";
+import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { SiCplusplus, SiFirebase } from "react-icons/si";
 import { FaSwift, FaReact, FaJava, FaPython, FaFigma } from "react-icons/fa";
 import { DiPostgresql, DiJavascript1 } from "react-icons/di";
 import { BiRectangle } from "react-icons/bi";
-import Resume from "./Resume";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const settings = {
@@ -50,33 +50,31 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen">
-        <BiRectangle className="text-gray-800 w-full h-24 z-999999 blur-sm fixed -top-3 bg-slate-800"></BiRectangle>
+        <BiRectangle className="text-gray-800 w-full h-24 z-150 blur-sm fixed -top-3 bg-slate-800 dark:bg-sky-200 dark:text-sky-200"></BiRectangle>
         <section>
           <div className={styles.mainContainer}>
-            <div>
-              <nav className="p-3 flex justify-center">
-                <h1 className="text-2xl font-semibold p-1.5 rounded-md dark:text-slate-900">
-                  <div className="hover:bg-orange-500 transition duration-400 ease-linear rounded-md p-1.5 fixed top-5 bg-light z-50">
-                    Rohit Nair
+            <nav className="p-3 flex justify-center">
+              <h1 className="text-2xl font-semibold p-1.5 rounded-md dark:text-slate-900">
+                <div className="hover:bg-orange-500 transition duration-400 ease-linear rounded-md p-1.5 fixed top-5 bg-light z-50">
+                  Rohit Nair
+                </div>
+              </h1>
+              <ul className="flex items-center space-x-3 ml-auto mr-24">
+                <li className="pr-2">
+                  <label
+                    onClick={() => setDark(!darkMode)}
+                    className="flex justify-center fixed top-6 bg-light z-50"
+                  >
+                    <BsSunFill className="text-2xl px-1 cursor-pointer dark:text-black rounded-md" />
+                  </label>
+                </li>
+                <li>
+                  <div className="flex justify-center fixed top-4 bg-light z-50 ">
+                    <Resume />
                   </div>
-                </h1>
-                <ul className="flex items-center space-x-3 ml-auto mr-24">
-                  <li className="pr-2">
-                    <label
-                      onClick={() => setDark(!darkMode)}
-                      className="flex justify-center fixed top-6 bg-light z-50"
-                    >
-                      <BsSunFill className="text-2xl px-1 cursor-pointer dark:text-black rounded-md" />
-                    </label>
-                  </li>
-                  <li>
-                    <div className="flex justify-center fixed top-4 bg-light z-50 ">
-                      <Resume />
-                    </div>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+                </li>
+              </ul>
+            </nav>
             <div className="text-center p-8">
               <h2 className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-slate-900">
                 <span>
@@ -91,13 +89,14 @@ export default function Home() {
                     ]}
                     wrapper="p"
                     loop={Infinity}
+                    className="z-10"
                   />
                 </span>
                 Rohit Nair 👋🏽
               </h2>
               <div className="w-full flex justify-center items-start">
                 <div className="w-9/12">
-                  <Slider {...settings} className="min-w-full z-0">
+                  <Slider {...settings} className="min-w-full z-3">
                     <div>
                       <h3>
                         <Image
