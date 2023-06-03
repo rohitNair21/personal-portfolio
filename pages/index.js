@@ -246,8 +246,8 @@ export default function Home() {
           <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900 mt-28 text-orange-500 underline">
             Portfolio
           </h4>
-          <p className="text-lg">
-            Check out some of the personal projects I have been building!
+          <p className="text-lg dark:text-slate-900">
+            Check out some of the personal projects I have been working on!
           </p>
 
           <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none">
