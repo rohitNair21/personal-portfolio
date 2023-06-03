@@ -300,7 +300,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none">
             <div className="text-center dark:text-white rounded-lg p-6 shadow-md shadow-black order-last md:order-first">
               <Image
-                src={require("../public/images/utrack.png")}
+                src={require("../public/images/uTrack.gif")}
                 className="rounded-lg hover:scale-125 duration-700"
               />
             </div>
