@@ -3,3 +3,45 @@
   max-width: 1200px;
 }
 
+.onScreen {
+  opacity: 0;
+  animation: fadeIn 1s ease-in;
+  animation-fill-mode: forwards;
+  z-index: 1;
+}
+
+.offScreen {
+  opacity: 1;
+  animation: fadeOut 1s ease-out;
+  animation-fill-mode: forwards;
+  z-index: 1;
+
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+

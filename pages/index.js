@@ -3,7 +3,8 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
 import Typical from "react-typical";
-import { useState } from "react";
+import { useInView } from "react-intersection-observer";
+import { useState, useRef, useEffect } from "react";
 import Slider from "react-slick";
 import Resume from "./Resume";
 
@@ -31,15 +32,22 @@ export default function Home() {
     cssEase: "linear",
   };
 
+  const [loading, setLoading] = useState(true);
   const [darkMode, setDark] = useState(false);
-  const [active, setActive] = useState(false);
-
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+  const options = {
+    threshold: 0.25,
   };
+
+  const options1 = {
+    threshold: 1,
+  };
+
+  const [ref, inView] = useInView(options);
+  const [ref2, inView2] = useInView(options);
+  const [ref3, inView3] = useInView(options);
+  const [ref4, inView4] = useInView(options);
+  const [ref5, inView5] = useInView(options);
+  const [ref6, inView6] = useInView(options);
 
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -49,191 +57,203 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen">
-        <BiRectangle className="text-gray-800 w-full h-24 z-150 blur-sm fixed -top-3 bg-slate-800 dark:bg-sky-200 dark:text-sky-200"></BiRectangle>
+      <nav className="p-5 flex justify-center z-200 bg-gray-800 dark:bg-sky-200">
+        <h1 className="text-2xl font-semibold px-44 rounded-md dark:text-slate-900">
+          <div className="bg-slate-800 dark:bg-sky-200 hover:bg-orange-500 transition duration-400 ease-linear rounded-md p-1.5 fixed top-3.5 bg-light z-50">
+            Rohit Nair
+          </div>
+        </h1>
+        <ul className="px-44 flex items-center space-x-3 ml-auto mr-24 ">
+          <li className=" pr-2">
+            <label
+              onClick={() => setDark(!darkMode)}
+              className=" flex justify-center fixed top-6 bg-light z-50"
+            >
+              <BsSunFill className="bg-gray-800 dark:bg-sky-200 text-2xl px-1 cursor-pointer dark:text-black rounded-md" />
+            </label>
+          </li>
+          <li className="bg-gray-800 dark:bg-sky-200">
+            <div className=" flex justify-center fixed top-4 bg-light z-50 ">
+              <Resume />
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <main
+        className={`bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen`}
+      >
         <section>
           <div className={styles.mainContainer}>
-            <nav className="p-3 flex justify-center">
-              <h1 className="text-2xl font-semibold p-1.5 rounded-md dark:text-slate-900">
-                <div className="hover:bg-orange-500 transition duration-400 ease-linear rounded-md p-1.5 fixed top-5 bg-light z-50">
-                  Rohit Nair
-                </div>
-              </h1>
-              <ul className="flex items-center space-x-3 ml-auto mr-24">
-                <li className="pr-2">
-                  <label
-                    onClick={() => setDark(!darkMode)}
-                    className="flex justify-center fixed top-6 bg-light z-50"
-                  >
-                    <BsSunFill className="text-2xl px-1 cursor-pointer dark:text-black rounded-md" />
-                  </label>
-                </li>
-                <li>
-                  <div className="flex justify-center fixed top-4 bg-light z-50 ">
-                    <Resume />
-                  </div>
-                </li>
-              </ul>
-            </nav>
             <div className="text-center p-8">
-              <h2 className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-slate-900">
-                <span>
-                  <Typical
-                    steps={[
-                      "Hello, I am",
-                      2000,
-                      "Greetings, I am",
-                      2000,
-                      "Hey, I am",
-                      2000,
-                    ]}
-                    wrapper="p"
-                    loop={Infinity}
-                    className="z-10"
-                  />
-                </span>
-                Rohit Nair 👋🏽
-              </h2>
-              <div className="w-full flex justify-center items-start">
-                <div className="w-9/12">
-                  <Slider {...settings} className="min-w-full z-3">
-                    <div>
-                      <h3>
-                        <Image
-                          src={require("../public/images/IMG-3865-modified.png")}
-                          className="hover:scale-125 duration-700"
-                        />
-                      </h3>
-                    </div>
-                    <div>
-                      <h3>
-                        <Image
-                          src={require("../public/images/unnamed-modified.png")}
-                          className="hover:scale-125 duration-700"
-                        />
-                      </h3>
-                    </div>
-                    <div>
-                      <h3>
-                        <Image
-                          src={require("../public/images/20210623_185054 (1)-modified.png")}
-                          className="hover:scale-125 duration-700"
-                        />
-                      </h3>
-                    </div>
-                    <div>
-                      <h3>
-                        <Image
-                          src={require("../public/images/unnamed1-modified.png")}
-                          className="hover:scale-125 duration-700"
-                        />
-                      </h3>
-                    </div>
-                    <div>
-                      <h3>
-                        <Image
-                          src={require("../public/images/rohit sut-modified.png")}
-                          className="hover:scale-125 duration-700"
-                        />
-                      </h3>
-                    </div>
-                    <div>
-                      <h3>
-                        <Image
-                          src={require("../public/images/149-891-7382_77xq_89 (1)-modified.png")}
-                          className="hover:scale-125 duration-700"
-                        />
-                      </h3>
-                    </div>
-                  </Slider>
+              <div
+                ref={ref6}
+                className={`${inView6 ? styles.onScreen : styles.offScreen}`}
+              >
+                <h2 className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-slate-900 z-3">
+                  <span>
+                    <Typical
+                      steps={[
+                        "Hello, I am",
+                        2000,
+                        "Greetings, I am",
+                        2000,
+                        "Hey, I am",
+                        2000,
+                      ]}
+                      wrapper="p"
+                      loop={Infinity}
+                      className="z-3"
+                    />
+                  </span>
+                  Rohit Nair 👋🏽
+                </h2>
+                <div className="w-full flex justify-center items-start z-3">
+                  <div className="w-9/12">
+                    <Slider
+                      {...settings}
+                      className="min-w-full z-3 overflow-hidden"
+                    >
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/IMG-3865-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/unnamed-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/20210623_185054 (1)-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/unnamed1-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/rohit sut-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                      <div>
+                        <h3>
+                          <Image
+                            src={require("../public/images/149-891-7382_77xq_89 (1)-modified.png")}
+                            className="hover:scale-125 duration-700"
+                          />
+                        </h3>
+                      </div>
+                    </Slider>
+                  </div>
                 </div>
               </div>
               <h3 className="text-2xl md:text-3xl md:text-center dark:text-slate-900">
                 COMPUTER SCIENCE STUDENT / INNOVATOR / DEVELOPER
               </h3>
-
-              <div className="md:grid md:grid-cols-2">
-                <div>
-                  <p className="p-2 md:text-lg dark:text-slate-900 text-center md:text-left">
-                    I&apos;m currently enrolled at the{" "}
-                    <span className="text-rose-800"> University </span>{" "}
-                    <span className="text-amber-500"> of </span>{" "}
-                    <span className="text-rose-800"> Calgary </span> where I am
-                    studying for my BSc in Computer Science. I am very
-                    interested in Human-Computer interactions! I am also
-                    exploring:
-                  </p>
-                  <div className="flex flex-row justify-center md:justify-start md:items-start mt-3">
-                    <ul className="p-2 dark:text-slate-900 text-center md:w-1/2 md:text-left">
-                      <li>• Working out 💪🏽</li>
-                      <li>• Developing personal projects 👨🏽‍💻</li>
-                      <li>• Volunteering 🤝</li>
-                      <li>• Entrepreneurship and innovation 📈</li>
-                      <li>• Blockchain networks ⛓</li>
-                    </ul>
+              <div
+                className={`${inView5 ? styles.onScreen : styles.offScreen}`}
+              >
+                <div ref={ref5} className="md:grid md:grid-cols-2">
+                  <div>
+                    <p className="p-2 md:text-lg dark:text-slate-900 text-center md:text-left">
+                      I&apos;m currently enrolled at the{" "}
+                      <span className="text-rose-800"> University </span>{" "}
+                      <span className="text-amber-500"> of </span>{" "}
+                      <span className="text-rose-800"> Calgary </span> where I
+                      am studying for my BSc in Computer Science. I am very
+                      interested in Human-Computer interactions! I am also
+                      exploring:
+                    </p>
+                    <div className="flex flex-row justify-center md:justify-start md:items-start mt-3">
+                      <ul className="p-2 dark:text-slate-900 text-center md:w-1/2 md:text-left">
+                        <li>• Working out 💪🏽</li>
+                        <li>• Developing personal projects 👨🏽‍💻</li>
+                        <li>• Volunteering 🤝</li>
+                        <li>• Entrepreneurship and innovation 📈</li>
+                        <li>• Blockchain networks ⛓</li>
+                      </ul>
+                    </div>
+                    <div className="px-2 cursor-pointer flex text-6xl justify-center gap-10 mt-10 md:justify-start dark:text-slate-900">
+                      <div className="hover:text-orange-500">
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href="https://www.linkedin.com/in/rohit-n-345957192/"
+                        >
+                          <BsLinkedin className="hover:scale-125 duration-700" />
+                        </a>
+                      </div>
+                      <div className="hover:text-orange-500">
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href="https://github.com/rohitNair21"
+                        >
+                          <BsGithub className="hover:scale-125 duration-700" />
+                        </a>
+                      </div>
+                      <div className="hover:text-orange-500">
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href="mailto:rohit.nair@ucalgary.ca"
+                        >
+                          <MdEmail className="hover:scale-125 duration-700" />
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <div className="px-2 cursor-pointer flex text-6xl justify-center gap-10 mt-10 md:justify-start dark:text-slate-900">
-                    <div className="hover:text-orange-500">
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="https://www.linkedin.com/in/rohit-n-345957192/"
-                      >
-                        <BsLinkedin className="hover:scale-125 duration-700" />
-                      </a>
-                    </div>
-                    <div className="hover:text-orange-500">
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="https://github.com/rohitNair21"
-                      >
-                        <BsGithub className="hover:scale-125 duration-700" />
-                      </a>
-                    </div>
-                    <div className="hover:text-orange-500">
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="mailto:rohit.nair@ucalgary.ca"
-                      >
-                        <MdEmail className="hover:scale-125 duration-700" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex flex-row justify-center">
-                  <div className="mt-6 md:mt-3">
-                    <div className="italic md:text-lg dark:text-slate-900 underline">
-                      Languages and Frameworks
-                    </div>
-                    <div className="grid md:gap-x-32 md:gap-y-6 grid-cols-3">
-                      <div>
-                        <FaJava className="text-8xl p-1.5 text-red-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                  <div className="flex flex-row justify-center">
+                    <div className="mt-6 md:mt-3">
+                      <div className="italic md:text-lg dark:text-slate-900 underline">
+                        Languages and Frameworks
                       </div>
-                      <div>
-                        <FaPython className="text-8xl p-1.5 text-yellow-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
-                      </div>
-                      <div>
-                        <FaReact className="text-8xl p-1.5 text-blue-400 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
-                      </div>
-                      <div>
-                        <FaSwift className="text-8xl p-1.5 text-orange-700 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
-                      </div>
-                      <div>
-                        <SiCplusplus className="text-8xl p-1.5 text-blue-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
-                      </div>
-                      <div>
-                        <DiJavascript1 className="text-8xl p-1.5 text-yellow-300 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
-                      </div>
-                      <div>
-                        <DiPostgresql className="text-8xl p-1.5 text-blue-700 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
-                      </div>
-                      <div>
-                        <SiFirebase className="text-8xl p-1.5 text-orange-300 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
-                      </div>
-                      <div>
-                        <FaFigma className="text-8xl 0 p-1.5 text-pink-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                      <div className="grid md:gap-x-32 md:gap-y-6 grid-cols-3">
+                        <div>
+                          <FaJava className="text-8xl p-1.5 text-red-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
+                        <div>
+                          <FaPython className="text-8xl p-1.5 text-yellow-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
+                        <div>
+                          <FaReact className="text-8xl p-1.5 text-blue-400 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
+                        <div>
+                          <FaSwift className="text-8xl p-1.5 text-orange-700 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
+                        <div>
+                          <SiCplusplus className="text-8xl p-1.5 text-blue-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
+                        <div>
+                          <DiJavascript1 className="text-8xl p-1.5 text-yellow-300 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
+                        <div>
+                          <DiPostgresql className="text-8xl p-1.5 text-blue-700 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
+                        <div>
+                          <SiFirebase className="text-8xl p-1.5 text-orange-300 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
+                        <div>
+                          <FaFigma className="text-8xl 0 p-1.5 text-pink-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -243,137 +263,163 @@ export default function Home() {
           </div>
         </section>
         <section className={styles.mainContainer}>
-          <h4 className="font-semibold text-2xl py-1 md:text-3xl dark:text-slate-900 mt-28 text-orange-500 underline">
-            Portfolio
-          </h4>
-          <p className="text-lg dark:text-slate-900">
-            Check out some of the personal projects I have been working on!
-          </p>
+          <div className={`${inView4 ? styles.onScreen : styles.offScreen}`}>
+            <h4
+              ref={ref4}
+              className="font-semibold text-2xl md:text-3xl dark:text-slate-900 mt-16 text-orange-500 underline"
+            >
+              Portfolio
+            </h4>
+            <p className="text-lg dark:text-slate-900">
+              Check out some of the personal projects I have been working on!
+            </p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none">
-            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
-              <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
-                SafeSpace 🔒
-              </h5>
-              <p>
-                An outreach application prototype designed using{" "}
-                <span className="font-bold">
-                  {" "}
-                  Flutter with a Firebase and the Google API{" "}
-                </span>
-                that provides domestic violence victims a 1-on-1 live chat with
-                multi-language support.
-              </p>
-              <div className="text-2xl mt-5 hover:text-orange-500">
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://github.com/rohitNair21/outreachAppFInal"
-                >
-                  <BsGithub className="hover:scale-125 duration-700" />
-                </a>
-              </div>
-            </div>
-            <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <h6 className="font-bold italic underline">
-                    iPhone 14 (French)
-                  </h6>
-                  <Image
-                    src={require("../public/images/SimSS1.png")}
-                    className="rounded-lg hover:scale-125 duration-700"
-                  />
+          <div className={`${inView3 ? styles.onScreen : styles.offScreen}`}>
+            <div
+              ref={ref3}
+              className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none"
+            >
+              <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
+                <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
+                  SafeSpace 🔒
+                </h5>
+                <p>
+                  An outreach application prototype designed using{" "}
+                  <span className="font-bold">
+                    {" "}
+                    Flutter with a Firebase and the Google API{" "}
+                  </span>
+                  that provides domestic violence victims a 1-on-1 live chat
+                  with multi-language support.
+                </p>
+                <div className="text-2xl mt-5 hover:text-orange-500">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href="https://github.com/rohitNair21/outreachAppFInal"
+                  >
+                    <BsGithub className="hover:scale-125 duration-700" />
+                  </a>
                 </div>
-                <div>
-                  <h7 className="font-bold italic underline">
-                    iPhone SE (English){" "}
-                  </h7>
-                  <Image
-                    src={require("../public/images/SimSS2.png")}
-                    className="rounded-lg hover:scale-125 duration-700"
-                  />
+              </div>
+              <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <h6 className="font-bold italic underline">
+                      iPhone 14 (French)
+                    </h6>
+                    <Image
+                      src={require("../public/images/SimSS1.png")}
+                      className="rounded-lg hover:scale-125 duration-700"
+                    />
+                  </div>
+                  <div>
+                    <h7 className="font-bold italic underline">
+                      iPhone SE (English){" "}
+                    </h7>
+                    <Image
+                      src={require("../public/images/SimSS2.png")}
+                      className="rounded-lg hover:scale-125 duration-700"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none">
-            <div className="text-center dark:text-white rounded-lg p-6 shadow-md shadow-black order-last md:order-first">
-              <Image
-                src={require("../public/images/uTrack.gif")}
-                className="rounded-lg hover:scale-125 duration-700"
-              />
-            </div>
-            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center order-first md:order-last">
-              <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
-                uTrack 🏃🏻🏃🏼🏃🏽🏃🏾🏃🏿
-              </h5>
-              <p>
-                A live gym tracker constructed using
-                <span className="font-bold">
-                  {" "}
-                  Django, React, and PostgreSQL{" "}
-                </span>
-                that uses a unique system to help student athletes and other
-                interested individuals verify their usage of University of
-                Calgary athletic services.
-              </p>
-              <div className="text-2xl mt-5 hover:text-orange-500">
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://github.com/Abhay-Chopra/uTrack"
-                >
-                  <BsGithub className="hover:scale-125 duration-700" />
-                </a>
+          <div className="z-1">
+            <div className={`${inView2 ? styles.onScreen : styles.offScreen}`}>
+              <div
+                ref={ref2}
+                className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none"
+              >
+                <div className="text-center dark:text-white rounded-lg p-6 shadow-md shadow-black order-last md:order-first">
+                  <Image
+                    src={require("../public/images/uTrack.gif")}
+                    className="rounded-lg hover:scale-125 duration-700"
+                  />
+                </div>
+                <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center order-first md:order-last">
+                  <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
+                    uTrack 🏃🏻🏃🏼🏃🏽🏃🏾🏃🏿
+                  </h5>
+                  <p>
+                    A live gym tracker constructed using
+                    <span className="font-bold">
+                      {" "}
+                      Django, React, and PostgreSQL{" "}
+                    </span>
+                    that uses a unique system to help student athletes and other
+                    interested individuals verify their usage of University of
+                    Calgary athletic services.
+                  </p>
+                  <div className="text-2xl mt-5 hover:text-orange-500">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://github.com/Abhay-Chopra/uTrack"
+                    >
+                      <BsGithub className="hover:scale-125 duration-700" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none">
-            <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
-              <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
-                CampusFire (
-                <span className="italic">
-                  contributing developer, in progress
-                </span>
-                ) 🔥
-              </h5>
-              <p>
-                A unique social media platform designed in
-                <span className="font-bold"> Swift and hosted on AWS </span>
-                that allows for University of Calgary students to connect with
-                peers.
-              </p>
-              <div className="text-2xl mt-5 hover:text-orange-500">
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href="https://github.com/rohitNair21/outreachAppFInal"
-                >
-                  <BsGithub className="hover:scale-125 duration-700" />
-                </a>
-              </div>
-            </div>
-            <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <h6 className="font-bold italic underline">
-                    iPhone XR (browsing profiles)
-                  </h6>
-                  <Image
-                    src={require("../public/images/IMG_6043(a).png")}
-                    className="rounded-lg hover:scale-125 duration-700"
-                  />
+          <div className="z-1">
+            <div className={`${inView ? styles.onScreen : styles.offScreen}`}>
+              <div
+                ref={ref}
+                className="grid md:grid-cols-2 gap-4 mt-5 place-items-center shadow-md shadow-black md:shadow-none"
+              >
+                <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center">
+                  <h5 className="text-white dark:text-slate-900 text-2xl font-semibold mb-4">
+                    CampusFire (
+                    <span className="italic">
+                      contributing developer, in progress
+                    </span>
+                    ) 🔥
+                  </h5>
+                  <p>
+                    A unique social media platform designed in
+                    <span className="font-bold"> Swift and hosted on AWS </span>
+                    that allows for University of Calgary students to connect
+                    with peers.
+                  </p>
+                  <div className="text-2xl mt-5 hover:text-orange-500">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://github.com/rohitNair21/outreachAppFInal"
+                    >
+                      <BsGithub className="hover:scale-125 duration-700" />
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h7 className="font-bold italic underline">
-                    iPhone XR (my profile){" "}
-                  </h7>
-                  <Image
-                    src={require("../public/images/IMG_6045(a).png")}
-                    className="rounded-lg hover:scale-125 duration-700"
-                  />
+                <div
+                  className={`text-center dark:text-black rounded-lg p-6 shadow-md shadow-black`}
+                >
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <h6 className="font-bold italic underline ">
+                        iPhone XR (browsing profiles)
+                      </h6>
+                      <Image
+                        src={require("../public/images/IMG_6043(a).png")}
+                        className="rounded-lg hover:scale-125 duration-700"
+                      />
+                    </div>
+                    <div>
+                      <h7 className="font-bold italic underline">
+                        iPhone XR (my profile){" "}
+                      </h7>
+                      <Image
+                        src={require("../public/images/IMG_6045(a).png")}
+                        className="rounded-lg hover:scale-125 duration-700"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
