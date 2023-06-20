@@ -57,13 +57,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className="p-5 flex justify-center z-200 bg-gray-800 dark:bg-sky-200">
-        <h1 className="text-2xl font-semibold px-44 rounded-md dark:text-slate-900">
+      <nav className="p-5 flex justify-center z-200 bg-gray-800 dark:bg-sky-200 ">
+        <h1 className="text-2xl font-semibold px-4 md:px-44 rounded-md dark:text-slate-900">
           <div className="bg-slate-800 dark:bg-sky-200 hover:bg-orange-500 transition duration-400 ease-linear rounded-md p-1.5 fixed top-3.5 bg-light z-50">
             Rohit Nair
           </div>
         </h1>
-        <ul className="px-44 flex items-center space-x-3 ml-auto mr-24 ">
+        <ul className="px-4 md:px-44 flex items-center space-x-3 ml-auto mr-24 ">
           <li className=" pr-2">
             <label
               onClick={() => setDark(!darkMode)}
@@ -73,7 +73,7 @@ export default function Home() {
             </label>
           </li>
           <li className="bg-gray-800 dark:bg-sky-200">
-            <div className=" flex justify-center fixed top-4 bg-light z-50 ">
+            <div className="flex justify-center fixed top-4 bg-light z-50 ">
               <Resume />
             </div>
           </li>
