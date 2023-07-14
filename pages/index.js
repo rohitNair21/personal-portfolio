@@ -57,30 +57,55 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className="p-5 flex justify-center z-200 bg-gray-800 dark:bg-sky-200 ">
-        <h1 className="text-2xl font-semibold px-4 md:px-44 rounded-md dark:text-slate-900">
-          <div className="bg-slate-800 dark:bg-sky-200 hover:bg-orange-500 transition duration-400 ease-linear rounded-md p-1.5 fixed top-3.5 bg-light z-50">
-            Rohit Nair
+      <header class="bg-[#2d3c51] fixed top-0 left-0 right-0 z-50 dark:bg-[#83d2fb]">
+        <nav class="flex justify-between items-center w-[72%] h-20 mx-auto">
+          <div>
+            <h1 className="text-2xl font-semibold rounded-md dark:text-slate-900">
+              <div className=" hover:bg-orange-500 transition duration-400 ease-linear rounded-md bg-light z-50">
+                Rohit Nair
+              </div>
+            </h1>
           </div>
-        </h1>
-        <ul className="px-4 md:px-44 flex items-center space-x-3 ml-auto mr-24 ">
-          <li className=" pr-2">
-            <label
-              onClick={() => setDark(!darkMode)}
-              className=" flex justify-center fixed top-6 bg-light z-50"
-            >
-              <BsSunFill className="bg-gray-800 dark:bg-sky-200 text-2xl px-1 cursor-pointer dark:text-black rounded-md" />
+          <div class="nav-links md:cursor-pointer cursor-default md:static md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto flex items-center px-5 md:opacity-100 opacity-0">
+            <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8">
+              <li>
+                <a
+                  class="hover:text-gray-500 font-bold dark:text-slate-900"
+                  href="#"
+                >
+                  About Me
+                </a>
+              </li>
+              <li>
+                <a
+                  class="hover:text-gray-500 font-bold dark:text-slate-900"
+                  href="#"
+                >
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a
+                  class="hover:text-gray-500 font-bold dark:text-slate-900"
+                  href="#"
+                >
+                  Testemonials
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex items-center gap-2">
+            <label onClick={() => setDark(!darkMode)} className="bg-light z-50">
+              <BsSunFill className=" text-2xl px-1 cursor-pointer dark:text-slate-900 rounded-md" />
             </label>
-          </li>
-          <li className="bg-gray-800 dark:bg-sky-200">
-            <div className="flex justify-center fixed top-4 bg-light z-50 ">
-              <Resume />
-            </div>
-          </li>
-        </ul>
-      </nav>
+
+            <Resume />
+          </div>
+        </nav>
+      </header>
+
       <main
-        className={`bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen`}
+        className={`bg-gray-800 px-4 md:px-6 lg:px-20 flex flex-col justify-center dark:bg-sky-200 min-h-screen mt-16`}
       >
         <section>
           <div className={styles.mainContainer}>
@@ -222,11 +247,11 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-row justify-center">
-                    <div className="mt-6 md:mt-3">
+                    <div className="mt-12 md:mt-3">
                       <div className="italic md:text-lg dark:text-slate-900 underline">
                         Languages and Frameworks
                       </div>
-                      <div className="grid md:gap-x-32 md:gap-y-6 grid-cols-3">
+                      <div className="grid md:gap-x-32 gap-x-16 md:gap-y-6 gap-y-6 grid-cols-3">
                         <div>
                           <FaJava className="text-8xl p-1.5 text-red-500 hover:bg-orange-500 transition duration-400 ease-linear rounded-md dark:text-slate-900" />
                         </div>
@@ -266,7 +291,7 @@ export default function Home() {
           <div className={`${inView4 ? styles.onScreen : styles.offScreen}`}>
             <h4
               ref={ref4}
-              className="font-semibold text-2xl md:text-3xl dark:text-slate-900 mt-16 text-orange-500 underline"
+              className="font-semibold text-2xl md:text-3xl dark:text-slate-900 md:mt-16 mt-12 text-orange-500 underline"
             >
               Portfolio
             </h4>
@@ -303,7 +328,7 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="text-center dark:text-black rounded-lg p-6 shadow-md shadow-black">
+              <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black">
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <h6 className="font-bold italic underline">
@@ -398,7 +423,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div
-                  className={`text-center dark:text-black rounded-lg p-6 shadow-md shadow-black`}
+                  className={`text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black`}
                 >
                   <div className="grid grid-cols-2 gap-3">
                     <div>
