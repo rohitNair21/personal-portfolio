@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
+import emailjs from "@emailjs/browser";
+
 import Typical from "react-typical";
 import { useInView } from "react-intersection-observer";
 import { useState, useRef, useEffect } from "react";
@@ -16,10 +18,57 @@ import { BsSunFill } from "react-icons/bs";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { SiCplusplus, SiFirebase } from "react-icons/si";
 import { FaSwift, FaReact, FaJava, FaPython, FaFigma } from "react-icons/fa";
+import { IoArrowRedo } from "react-icons/io";
 import { DiPostgresql, DiJavascript1 } from "react-icons/di";
-import { BiRectangle } from "react-icons/bi";
 
 export default function Home() {
+  const form = useRef();
+  const aboutSection = useRef(null);
+  const projectSection = useRef(null);
+  const testemonialSection = useRef(null);
+
+  const scrollToAboutMe = () => {
+    window.scrollTo({
+      top: aboutSection.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToProjects = () => {
+    window.scrollTo({
+      top: projectSection.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToTestemonials = () => {
+    window.scrollTo({
+      top: testemonialSection.current.offsetTop,
+      behavior: "smooth",
+    });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_4riwnal",
+        "template_ph52jti",
+        form.current,
+        "XHofuwgiEHJHAG8QT"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          e.target.reset();
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
   const settings = {
     dots: false,
     infinite: true,
@@ -71,7 +120,7 @@ export default function Home() {
               <li>
                 <a
                   class="hover:text-gray-500 font-bold dark:text-slate-900"
-                  href="#"
+                  onClick={scrollToAboutMe}
                 >
                   About Me
                 </a>
@@ -79,17 +128,9 @@ export default function Home() {
               <li>
                 <a
                   class="hover:text-gray-500 font-bold dark:text-slate-900"
-                  href="#"
+                  onClick={scrollToProjects}
                 >
                   Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  class="hover:text-gray-500 font-bold dark:text-slate-900"
-                  href="#"
-                >
-                  Testemonials
                 </a>
               </li>
             </ul>
@@ -114,7 +155,10 @@ export default function Home() {
                 ref={ref6}
                 className={`${inView6 ? styles.onScreen : styles.offScreen}`}
               >
-                <h2 className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-slate-900 z-3">
+                <h2
+                  className="text-3xl py-2 text-orange-500 animate-fade 5s md:text-6xl dark:text-slate-900 z-3"
+                  ref={aboutSection}
+                >
                   <span>
                     <Typical
                       steps={[
@@ -295,11 +339,10 @@ export default function Home() {
             >
               Portfolio
             </h4>
-            <p className="text-lg dark:text-slate-900">
+            <p className="text-lg dark:text-slate-900" ref={projectSection}>
               Check out some of the personal projects I have been working on!
             </p>
           </div>
-
           <div className={`${inView3 ? styles.onScreen : styles.offScreen}`}>
             <div
               ref={ref3}
@@ -391,7 +434,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
           <div className="z-1">
             <div className={`${inView ? styles.onScreen : styles.offScreen}`}>
               <div
@@ -450,6 +492,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <footer className="flex justify-center items-center mt-10">
           <p className="text-gray-400 text-sm dark:text-white">
             Designed by Rohit Nair © 2023
