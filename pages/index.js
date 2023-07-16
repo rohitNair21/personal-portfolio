@@ -21,11 +21,12 @@ import { FaSwift, FaReact, FaJava, FaPython, FaFigma } from "react-icons/fa";
 import { IoArrowRedo } from "react-icons/io";
 import { DiPostgresql, DiJavascript1 } from "react-icons/di";
 
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+
 export default function Home() {
   const form = useRef();
   const aboutSection = useRef(null);
   const projectSection = useRef(null);
-  const testemonialSection = useRef(null);
 
   const scrollToAboutMe = () => {
     window.scrollTo({
@@ -43,7 +44,7 @@ export default function Home() {
 
   const scrollToTestemonials = () => {
     window.scrollTo({
-      top: testemonialSection.current.offsetTop,
+      top: form.current.offsetTop,
       behavior: "smooth",
     });
   };
@@ -91,6 +92,7 @@ export default function Home() {
     threshold: 1,
   };
 
+  const [refMinus1, inViewMinus1] = useInView(options);
   const [ref, inView] = useInView(options);
   const [ref2, inView2] = useInView(options);
   const [ref3, inView3] = useInView(options);
@@ -132,6 +134,14 @@ export default function Home() {
                 >
                   Projects
                 </a>
+              </li>
+              <li>
+                <a
+                  class="hover:text-gray-500 font-bold dark:text-slate-900"
+                  onClick={scrollToTestemonials}
+                >
+                  Contact Me
+                </a>{" "}
               </li>
             </ul>
           </div>
@@ -335,11 +345,14 @@ export default function Home() {
           <div className={`${inView4 ? styles.onScreen : styles.offScreen}`}>
             <h4
               ref={ref4}
-              className="font-semibold text-2xl md:text-3xl dark:text-slate-900 md:mt-16 mt-12 text-orange-500 underline"
+              className="font-semibold text-2xl md:text-3xl dark:text-slate-900 md:mt-16 mt-12 text-orange-500 underline text-center"
             >
               Portfolio
             </h4>
-            <p className="text-lg dark:text-slate-900" ref={projectSection}>
+            <p
+              className="text-lg dark:text-slate-900 text-center"
+              ref={projectSection}
+            >
               Check out some of the personal projects I have been working on!
             </p>
           </div>
@@ -492,7 +505,81 @@ export default function Home() {
             </div>
           </div>
         </section>
-
+        <section
+          className={`${inViewMinus1 ? styles.onScreen : styles.offScreen}`}
+          ref={refMinus1}
+        >
+          <h4 className="font-semibold text-2xl md:text-3xl dark:text-slate-900 md:mt-16 mt-12 text-orange-500 underline text-center">
+            Contact Me
+          </h4>
+          <p className="text-lg dark:text-slate-900 text-center">
+            If you have any questions or want to speak further, write me an
+            email and I will get back to you!
+          </p>
+          <div className="w-full flex justify-center items-center mt-5">
+            <form
+              ref={form}
+              onSubmit={sendEmail}
+              className="max-w-md w-full dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black"
+            >
+              <div className="mb-4">
+                <label
+                  className="block dark:text-slate-900 text-orange-500 text-sm font-bold mb-2"
+                  htmlFor="name"
+                >
+                  Name
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="name"
+                  type="text"
+                  name="user_name"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block dark:text-slate-900 text-orange-500 text-sm font-bold mb-2"
+                  htmlFor="email"
+                >
+                  Email
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="email"
+                  type="email"
+                  name="user_email"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <label
+                  className="block dark:text-slate-900 text-orange-500 text-sm font-bold mb-2"
+                  htmlFor="message"
+                >
+                  Message
+                </label>
+                <textarea
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Your message"
+                  required
+                ></textarea>
+              </div>
+              <div className="flex justify-center">
+                <input
+                  className="bg-orange-400 hover:bg-orange-500 duration-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
+                  type="submit"
+                  value="Send"
+                />
+              </div>
+            </form>
+          </div>
+        </section>
         <footer className="flex justify-center items-center mt-10">
           <p className="text-gray-400 text-sm dark:text-white">
             Designed by Rohit Nair © 2023
