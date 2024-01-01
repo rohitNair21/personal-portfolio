@@ -21,7 +21,6 @@ import { SiCplusplus, SiFirebase } from "react-icons/si";
 import { FaSwift, FaReact, FaJava, FaPython, FaFigma } from "react-icons/fa";
 import { IoArrowRedo } from "react-icons/io";
 import { DiPostgresql, DiJavascript1 } from "react-icons/di";
-import ParticlesBackground from "./Particle.js";
 
 export default function Home() {
   const form = useRef();
