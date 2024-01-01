@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 import { useState, useRef, useEffect } from "react";
 import Slider from "react-slick";
 import Resume from "./Resume";
+import { TypeAnimation } from "react-type-animation";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -20,8 +21,7 @@ import { SiCplusplus, SiFirebase } from "react-icons/si";
 import { FaSwift, FaReact, FaJava, FaPython, FaFigma } from "react-icons/fa";
 import { IoArrowRedo } from "react-icons/io";
 import { DiPostgresql, DiJavascript1 } from "react-icons/di";
-
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import ParticlesBackground from "./Particle.js";
 
 export default function Home() {
   const form = useRef();
@@ -170,22 +170,25 @@ export default function Home() {
                   ref={aboutSection}
                 >
                   <span>
-                    <Typical
-                      steps={[
+                    <TypeAnimation
+                      sequence={[
                         "Hello, I am",
-                        2000,
-                        "Greetings, I am",
-                        2000,
-                        "Hey, I am",
-                        2000,
+                        2500,
+                        "Greetings, I go by",
+                        2500,
+                        "Hey, it's",
+                        2500,
                       ]}
-                      wrapper="p"
-                      loop={Infinity}
-                      className="z-3"
+                      wrapper="span"
+                      speed={50}
+                      style={{ fontSize: "1em", display: "inline-block" }}
+                      repeat={Infinity}
                     />
                   </span>
-                  Rohit Nair 👋🏽
                 </h2>
+                <h3 className="text-3xl mb-4 text-orange-500 animate-fade 5s md:text-6xl dark:text-slate-900 z-3">
+                  Rohit Nair 👋🏽
+                </h3>
                 <div className="w-full flex justify-center items-start z-3">
                   <div className="w-9/12">
                     <Slider
@@ -393,6 +396,7 @@ export default function Home() {
                     <Image
                       src={require("../public/images/SimSS1.png")}
                       className="rounded-lg hover:scale-125 duration-700"
+                      loading="lazy"
                     />
                   </div>
                   <div>
@@ -402,6 +406,7 @@ export default function Home() {
                     <Image
                       src={require("../public/images/SimSS2.png")}
                       className="rounded-lg hover:scale-125 duration-700"
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -418,6 +423,7 @@ export default function Home() {
                   <Image
                     src={require("../public/images/uTrack.gif")}
                     className="rounded-lg hover:scale-125 duration-700"
+                    loading="lazy"
                   />
                 </div>
                 <div className="text-center dark:text-slate-900 rounded-lg p-6 shadow-md shadow-black flex flex-col items-center order-first md:order-last">
@@ -488,6 +494,7 @@ export default function Home() {
                       <Image
                         src={require("../public/images/IMG_6043(a).png")}
                         className="rounded-lg hover:scale-125 duration-700"
+                        loading="lazy"
                       />
                     </div>
                     <div>
@@ -497,6 +504,7 @@ export default function Home() {
                       <Image
                         src={require("../public/images/IMG_6045(a).png")}
                         className="rounded-lg hover:scale-125 duration-700"
+                        loading="lazy"
                       />
                     </div>
                   </div>
